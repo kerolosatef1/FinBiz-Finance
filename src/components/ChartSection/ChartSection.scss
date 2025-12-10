@@ -1,0 +1,62 @@
+.dashboard-grid {
+  display: grid;
+  gap: 20px;
+  padding: 20px;
+
+  grid-template-columns: 260px 1fr 260px;
+  grid-template-rows: auto 1fr;
+
+  grid-template-areas:
+    "stats stats stats"
+    "left chart right";
+
+  background: #0f0f11;
+  color: white;
+}
+
+/* ======= Stats Cards ======= */
+.stats-cards {
+  grid-area: stats;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+
+  .card {
+    background: #141416;
+    padding: 20px;
+    border-radius: 12px;
+  }
+}
+
+.left-sidebar {
+  grid-area: left;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  .box {
+    background: #141416;
+    padding: 20px;
+    border-radius: 12px;
+  }
+}
+
+.chart-box {
+  grid-area: chart;
+  background: #141416;
+  border-radius: 20px;
+  padding: 20px;
+}
+
+.right-sidebar {
+  grid-area: right;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  .box {
+    background: #141416;
+    padding: 20px;
+    border-radius: 12px;
+  }
+}

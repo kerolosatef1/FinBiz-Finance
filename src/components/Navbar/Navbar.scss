@@ -1,0 +1,226 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    width: 100%;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+$main-color: #A3DC2F;
+$secondary-color-light: #1D1C20;
+$secondary-color-dark: #9B9CA1;
+$backgound-navbar-light: #F6F6F6;
+$backgound-navbar-dark: #0F0F0F;
+$text-color-light: #111;
+$text-color-dark: #F5F5F5;
+$btn-bg-light: $main-color;
+$btn-text-light: #fff;
+$btn-hover-light: darken($main-color, 10%);
+$btn-bg-dark: #F2F2F2;
+$btn-text-dark: #1F1F1F;
+$btn-hover-dark: #E0E0E0;
+$color-chart: #3AA087;
+$logo-text: #FBFBFB;
+$side-padding-desktop: 3rem;
+$side-padding-mobile: 1.2rem;
+
+:root[data-theme="light"] {
+    --navbar-bg: #{$logo-text};
+    --navbar-text: #{$text-color-light};
+    --btn-bg: #{$btn-bg-light};
+    --btn-text: #{$btn-text-light};
+    --btn-hover: #{$btn-hover-light};
+    --logo-text:#{$secondary-color-light};
+}
+
+:root[data-theme="dark"] {
+    --navbar-bg: #{$backgound-navbar-dark};
+    --navbar-text: #{$text-color-dark};
+    --btn-bg: #{$btn-text-dark};
+    --btn-text: #{$logo-text};
+    --btn-hover: #{$btn-hover-dark};
+    --logo-text:#{$logo-text};
+}
+
+
+
+.navbar {
+    width: 100%;
+    background: var(--navbar-bg);
+    color: var(--navbar-text);
+    padding: 0;
+    overflow: hidden;
+}
+
+.navbar-container {
+    max-width: 1300px;
+    height: 80px;
+    margin: 0 auto;
+    padding: 0 $side-padding-desktop;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logoWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 3rem;
+    width: 3rem;
+    overflow: hidden;
+}
+
+.logoContainer--small {
+    transform: scale(0.75);
+    transform-origin: center;
+    width: fit-content;
+    height: fit-content;
+    display: flex;
+}
+
+
+.left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    color: inherit;
+}
+
+.logoText {
+    font-size: 22px;
+    font-weight: 700;
+}
+
+/* LINKS */
+.links {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+
+    li a {
+        text-decoration: none;
+        color: var(--navbar-text);
+        font-size: 18px;
+        transition: color 0.3s;
+
+        &:hover {
+            color: $color-chart;
+        }
+    }
+}
+
+/* RIGHT */
+.right {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.getStart {
+    background: var(--navbar-bg);
+    color: var(--btn-text);
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 19px;
+    font-weight: 600;
+    transition: background 0.3s;
+
+
+}
+
+.themeToggle {
+    font-size: 22px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--navbar-text);
+    transition: transform 0.3s;
+
+    &:hover {
+        transform: rotate(20deg);
+    }
+}
+
+/* HAMBURGER */
+.hamburger {
+    width: 30px;
+    height: 20px;
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+
+    span {
+        background: var(--navbar-text);
+        height: 3px;
+        width: 100%;
+        border-radius: 2px;
+        transition: all 0.3s;
+    }
+}
+
+.langBtn {
+    padding: 6px 12px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 14px;
+    transition: 0.3s ease;
+    text-transform: uppercase;
+
+    /* Light Mode */
+    background-color: var(--badge-bg);
+    color: var(--text-color);
+
+    &:hover {
+        background-color: var(--main-color);
+        color: #fff;
+    }
+}
+
+/* Dark Mode (لو انت مبدل theme بإضافة كلاس dark على body أو nav) */
+.navbar.dark .langBtn {
+    background-color: #222;
+    color: #fff;
+
+    &:hover {
+        background-color: var(--main-color);
+        color: #000;
+    }
+}
+
+
+
+
+@media (max-width: 900px) {
+    .links {
+        width: 100%;
+        background: var(--navbar-bg);
+        flex-direction: column;
+        padding: 20px;
+        display: none;
+
+        &.open {
+            display: flex;
+        }
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .getStart {
+        display: none;
+    }
+}
