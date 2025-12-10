@@ -5,7 +5,7 @@ import image3 from "../../../public/images (1).jpeg";
 import image4 from "../../../public/images.jpeg";
 import { useTranslation } from "react-i18next";
 export default function Hero() {
-  const { t, i18n } = useTranslation()
+  const { t } = useTranslation()
 
   return (
     <main className={styles.hero}>

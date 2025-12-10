@@ -1,9 +1,5 @@
-import React, { useEffect, useState } from "react";
-import Style from "./Data.module.scss";
-export default function Data(){
-    const [count, setCount] = useState(0);
-    useEffect(() => {},[]);
+export default function Data() {
     return <>
-    <div className='navbar-log'>Data</div>
+        <div className='navbar-log'>Data</div>
     </>
 }

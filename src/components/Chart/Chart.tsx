@@ -4,7 +4,9 @@ import Chart from "chart.js/auto";
 useEffect(() => {
   const ctx = document.getElementById("spendChart");
 
-  new Chart(ctx, {
+  if (!ctx) return;
+
+  new Chart(ctx as HTMLCanvasElement, {
     type: "line",
     data: {
       labels: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],

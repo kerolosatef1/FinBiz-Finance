@@ -1,8 +1,5 @@
-import React, { useEffect, useState } from "react";
-export default function Integration(){
-    const [count, setCount] = useState(0);
-    useEffect(() => {},[]);
+export default function Integration() {
     return <>
-    <div>Integration</div>
+        <div>Integration</div>
     </>
 }

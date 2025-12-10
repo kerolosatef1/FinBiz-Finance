@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from "react";
-export default function Blog(){
-    const [count, setCount] = useState(0);
-    useEffect(() => {},[]);
+export default function Blog() {
+
     return <>
+        <h1>Blog</h1>
     </>
 }

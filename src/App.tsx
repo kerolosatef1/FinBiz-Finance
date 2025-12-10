@@ -1,5 +1,4 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";// Components
-import Data from "./components/Data/Data";
 import Home from "./components/Home/Home";
 import Layout from "./components/Layout/Layout";
 import GetStart from "./components/GetStart/GetStart";
@@ -9,11 +8,10 @@ import Integration from "./components/Integration/Integration";
 import Blog from "./components/Blog/Blog";
 import Pricing from "./components/Pricing/Pricing";
 import NotFound from "./components/NotFound/NotFound";
-import { useTheme } from "./components/Themes/Themes";
 import Footer from "./components/Footer/Footer";
 
 function App() {
-  const { theme } = useTheme();
+
 
   // Routes
   const routes = createBrowserRouter([
