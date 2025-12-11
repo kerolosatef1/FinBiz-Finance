@@ -347,28 +347,23 @@ $accent-blue: #003FDB;
     pointer-events: none;
 }
 
-.avatar-group {
+.avatars {
     display: flex;
-    justify-content: center;
-    margin-top: auto;
-    padding-top: 20px;
+    margin-top:5px ;
 
-    .avatar {
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        border: 2px solid $card-bg;
-        margin-left: -10px;
-        background-size: cover;
-        background-position: center;
-        background-color: #333;
-        flex-shrink: 0;
-
-        &:first-child {
-            margin-left: 0;
-        }
+    img {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      border: 2px solid #fff;
+      object-fit: cover;
+      margin-left: -10px;
+      box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
     }
-}
+      &:first-child {
+        margin-left: 0;
+      }
+    }
 
 
 

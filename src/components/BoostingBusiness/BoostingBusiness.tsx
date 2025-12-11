@@ -20,6 +20,11 @@ ChartJS.register(
     Filler
 );
 
+import image1 from "../../../public/download (1).jpeg";
+import image2 from "../../../public/download.jpeg";
+import image3 from "../../../public/images (1).jpeg";
+import image4 from "../../../public/images.jpeg";
+
 export default function BoostingBusiness() {
     const { t } = useTranslation();
 
@@ -103,14 +108,12 @@ export default function BoostingBusiness() {
                     <h3>{t("Easy collaboration")}</h3>
                     <p>{t("Seamlessly collaborate with your team members like never before.")}</p>
 
-                    <div className="avatar-group">
-                        {/* Placeholders for avatars using styled divs */}
-                        <div className="avatar" style={{ backgroundColor: '#FFADAD' }}></div>
-                        <div className="avatar" style={{ backgroundColor: '#FFD6A5' }}></div>
-                        <div className="avatar" style={{ backgroundColor: '#FDFFB6' }}></div>
-                        <div className="avatar" style={{ backgroundColor: '#CAFFBF' }}></div>
-                        <div className="avatar" style={{ backgroundColor: '#9BF6FF' }}></div>
-                    </div>
+                    <div className="avatars">
+          <img src={image1} alt="user" />
+          <img src={image2} alt="user" />
+          <img src={image3} alt="user" />
+          <img src={image4} alt="user" />
+        </div>
                 </div>
 
                 {/* 4. Real-time Accounting */}
