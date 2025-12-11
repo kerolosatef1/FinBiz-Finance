@@ -11,8 +11,6 @@ import {
 import { Line } from "react-chartjs-2";
 import { FaArrowUp, FaFilePdf, FaEllipsisV } from "react-icons/fa";
 import { useTranslation } from "react-i18next";
-
-// Register ChartJS
 ChartJS.register(
     CategoryScale,
     LinearScale,
