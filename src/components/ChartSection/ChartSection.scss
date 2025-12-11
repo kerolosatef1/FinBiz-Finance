@@ -1,62 +1,331 @@
-.dashboard-grid {
-  display: grid;
-  gap: 20px;
-  padding: 20px;
+@import '../Footer/Footer.module.scss';
 
-  grid-template-columns: 260px 1fr 260px;
-  grid-template-rows: auto 1fr;
+// 2. ChartSection Component (Card Style)
+.chart-section {
+  width: 1200px;
+  max-width: 100%;
+  background: #1E1E22;
+  border-radius: 26px;
+  border: 1px solid #242424;
+  padding: 32px;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.35);
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
 
-  grid-template-areas:
-    "stats stats stats"
-    "left chart right";
+  :global([data-theme="light"]) & {
+    background: #FFF;
+    border-color: #E5E5E5;
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.08);
+  }
 
-  background: #0f0f11;
-  color: white;
+  @media (max-width: 1024px) {
+    padding: 24px;
+    border-radius: 20px;
+  }
+
+
+  @media (max-width: 600px) {
+    padding: 20px 16px;
+    border-radius: 16px;
+  }
 }
 
-/* ======= Stats Cards ======= */
+
+.container {
+  width: 100%;
+}
+
 .stats-cards {
-  grid-area: stats;
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+
+  @media (max-width: 1024px) {
+    gap: 16px;
+  }
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
+}
+
+.card {
+  flex: 1;
+  background: transparent; 
+  flex-direction: column;
+  gap: 8px;
+  padding: 16px;
+  position: relative;
+
+  // Green bottom line
+
+  .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .card-title {
+    color: #9CA3AF; // Gray subtitle
+    font-size: 0.9rem;
+    font-weight: 500;
+  }
+
+  .card-percentage {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: $main-color;
+
+    &.positive {
+      color: $main-color;
+    }
+  }
+
+  .card-value {
+    font-size: 2rem; // Large
+    font-weight: 700; // Bold
+    color: #fff;
+
+    :global([data-theme="light"]) & {
+      color: #111;
+    }
+  }
+}
+
+
+// Main Dashboard Grid
+.dashboard-content {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
+  grid-template-columns: 260px 1fr 260px; // Left sidebar, Center, Right sidebar
+  gap: 24px; // 8px grid * 3
 
-  .card {
-    background: #141416;
-    padding: 20px;
-    border-radius: 12px;
+  @media (max-width: 1024px) {
+    grid-template-columns: 1fr; // Stack on smaller screens
   }
 }
 
-.left-sidebar {
-  grid-area: left;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-
-  .box {
-    background: #141416;
-    padding: 20px;
-    border-radius: 12px;
-  }
-}
-
-.chart-box {
-  grid-area: chart;
-  background: #141416;
-  border-radius: 20px;
-  padding: 20px;
-}
-
+// 4. Sidebars
+.left-sidebar,
 .right-sidebar {
-  grid-area: right;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 24px;
+}
 
-  .box {
-    background: #141416;
-    padding: 20px;
-    border-radius: 12px;
+.left-sidebar,.card {
+  background-color: #1A1A1A;
+  border: 1px solid #242424;
+  border-radius: 10px;
+}
+
+// Box Styles
+.box {
+  padding: 20px;
+
+
+
+  :global([data-theme="light"]) & {}
+}
+
+.balance-box {
+
+  // Maybe highlight balance box?
+  h3 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin: 8px 0 16px;
+    color: #fff;
+  }
+
+  p {
+    color: #9CA3AF;
+    font-size: 0.9rem;
+  }
+
+  button {
+    width: 100%;
+    padding: 10px;
+    background: #FFF;
+    color: #000;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: opacity 0.2s;
+
+    &:hover {
+      opacity: 0.9;
+    }
+  }
+}
+
+.info-box {
+  h3 {
+    font-size: 1.4rem;
+    color: #fff;
+
+    :global([data-theme="light"]) & {
+      color: #111;
+    }
+  }
+
+  p {
+    color: #9CA3AF;
+    font-size: 0.85rem;
+  }
+}
+
+// 3. Chart Layout (Center Block)
+.chart-container {
+  background: #141416; // Slightly darker/distinct for chart area?
+  // Or transparent if sitting on the main Card. Request said "ChartSection Component (card on top)".
+  // So this internal area might just be content.
+  // But "Rounded corners on the entire chart container".
+  border-radius: 20px; // Inner radius
+  padding: 24px;
+  border: 1px solid #2C2C30;
+  display: flex;
+  flex-direction: column;
+
+  :global([data-theme="light"]) & {
+    background: #fff; // or #F9FAFB?
+    border-color: #F3F4F6;
+  }
+}
+
+.chart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.chart-legend {
+  display: flex;
+  gap: 16px;
+
+  .legend-item {
+    font-size: 0.9rem;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    :global([data-theme="light"]) & {
+      color: #111;
+    }
+
+    &::before {
+      content: "";
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      display: block;
+    }
+
+    &.income::before {
+      background: $main-color;
+    }
+
+    &.expense::before {
+      background: #fff;
+      border: 1px solid #555;
+
+      :global([data-theme="light"]) & {
+        background: #E5E5E5;
+      }
+    }
+  }
+}
+
+.chart-year-select {
+  background: transparent;
+  color: #fff;
+  border: 1px solid #444;
+  border-radius: 6px;
+  padding: 4px 12px;
+
+  :global([data-theme="light"]) & {
+    color: #111;
+    border-color: #E5E5E5;
+  }
+
+  option {
+    background: #222;
+  }
+}
+
+
+// Right Sidebar List
+.list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+
+  h4 {
+    font-size: 1rem;
+    font-weight: 600;
+
+    :global([data-theme="light"]) & {
+      color: #111;
+    }
+  }
+
+  .add-btn {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    border: 1px solid #444;
+    background: transparent;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+    :global([data-theme="light"]) & {
+      color: #111;
+      border-color: #E5E5E5;
+    }
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.1);
+    }
+  }
+
+  &.mt-4 {
+    margin-top: 32px;
+  }
+}
+
+.list-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  .avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #333;
+    // Placeholder image effect
+  }
+
+  .info {
+    .name {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: #fff;
+
+      :global([data-theme="light"]) & {
+        color: #111;
+      }
+    }
+
+    .role {
+      font-size: 0.75rem;
+      color: #9CA3AF;
+    }
   }
 }

@@ -1,6 +1,34 @@
-.Home {
-  .maincolor {
-    color: #A3DC2F;       // لو قصدك لون
-    background: #A3DC2F;  // لو قصدك خلفية
+.homeWrapper {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  background: linear-gradient(to bottom,
+      #1D1C20 30%,
+      #0F0F0F 50%,
+      #1D1C20 25%
+    );
+
+  :global([data-theme="light"]) & {
+    background: linear-gradient(to bottom,
+        #F6F6F6 0px,
+        #F6F6F6 220px,
+        #FFFFFF 220px,
+        #FFFFFF 100%);
+  }
+}
+
+.chartWrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 0 16px; // prevent overflow on mobile
+  margin-top: -40px;
+  margin-bottom: 20px;
+
+  @media (max-width: 768px) {
+    margin-top: -20px;
   }
 }

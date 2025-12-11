@@ -1,0 +1,214 @@
+// Variables
+$main-color: #A3DC2F; // The bright lime green from the logo/design
+$primary-text: #FFFFFF;
+$secondary-text: #9CA3AF;
+$card-bg: #161616; // Dark card background
+$card-border: #333333;
+$btn-white: #FFFFFF;
+$badge-green-bg: rgba(51, 198, 171, 0.1);
+$badge-green-text: #37D67A;
+$badge-popular-bg: rgba(51, 198, 171, 0.1); // Assuming similar or specific color
+$badge-popular-text: #37D67A;
+
+.payment-section {
+  width: 1200px;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 60px 0;
+  font-family: 'Inter', sans-serif; // Assuming font
+
+  @media (max-width: 1240px) {
+    width: 95%;
+  }
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .pricing-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #1C1C1E;
+    border: 1px solid #333;
+    color: $badge-green-text;
+    font-size: 0.85rem;
+    font-weight: 500;
+    padding: 6px 16px;
+    border-radius: 20px;
+    margin-bottom: 24px;
+
+    svg {
+      font-size: 0.8rem;
+    }
+  }
+
+  h2 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: $primary-text;
+    margin-bottom: 20px;
+    line-height: 1.1;
+
+    @media (max-width: 768px) {
+      font-size: 2.5rem;
+    }
+  }
+
+  p {
+    color: $secondary-text;
+    font-size: 1rem;
+    max-width: 700px;
+    line-height: 1.6;
+  }
+}
+
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+
+  @media (max-width: 1024px) {
+    grid-template-columns: repeat(2, 1fr); // 2 cols tablet? Or maybe just stack based on width
+    // The middle card is usually highlighted, stacking might be better or 2-1 layout.
+    // Let's go with responsive auto-fit or explicit breakpoints.
+    // Design usually stacks to 1 on mobile, maybe 2 on tablet with last one centered.
+  }
+
+  @media (max-width: 900px) {
+    grid-template-columns: 1fr;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+}
+
+.pricing-card {
+  background: $card-bg;
+  border: 1px solid $card-border;
+  border-radius: 24px;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: transform 0.2s, border-color 0.2s;
+
+  &:hover {
+    transform: translateY(-5px);
+    border-color: lighten($card-border, 10%);
+  }
+
+  // Popular Badge styling (Pro card)
+  .popular-badge {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: rgba(47, 128, 237, 0.15); // Adjust color based on design (looks vaguely blueish/green in dark mode?)
+    color: #58C6CD; // Teal-ish from image "Popular" badge
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 4px 12px;
+    border-radius: 12px;
+    border: 1px solid rgba(88, 198, 205, 0.2);
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .card-title {
+    color: $primary-text;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 16px;
+    text-align: center;
+  }
+
+  .card-desc {
+    color: $secondary-text;
+    font-size: 0.9rem;
+    text-align: center;
+    line-height: 1.5;
+    margin-bottom: 32px;
+    min-height: 42px; // Align
+  }
+
+  .price {
+    text-align: center;
+    color: $primary-text;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 40px;
+
+    span {
+      font-size: 1rem;
+      color: $secondary-text;
+      font-weight: 400;
+    }
+  }
+
+  .features-list {
+    margin-bottom: 40px;
+    flex: 1; // Push button to bottom
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    .feature-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: $secondary-text; // Or white? Image shows fairly bright text, maybe off-white
+      color: #E0E0E0;
+      font-size: 0.95rem;
+
+      svg {
+        color: $primary-text; // Checkmark color
+        font-size: 1rem;
+        flex-shrink: 0;
+      }
+    }
+  }
+
+  .action-btn {
+    width: 100%;
+    padding: 16px;
+    border-radius: 30px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-align: center;
+    border: 1px solid transparent;
+
+    &.btn-outline {
+      background: rgba(255, 255, 255, 0.05); // Very subtle fill or just border
+      border-color: #333;
+      color: $primary-text;
+
+      &:hover {
+        background: rgba(255, 255, 255, 0.1);
+      }
+    }
+
+    &.btn-white {
+      background: $btn-white;
+      color: #000;
+
+      &:hover {
+        background: #F0F0F0;
+      }
+    }
+
+    &.btn-green {
+      background: $main-color; // #A3DC2F
+      color: #000;
+
+      &:hover {
+        background: lighten($main-color, 5%);
+      }
+    }
+  }
+}

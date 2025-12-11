@@ -1,4 +1,4 @@
-import { createBrowserRouter, RouterProvider } from "react-router-dom";// Components
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "./components/Home/Home";
 import Layout from "./components/Layout/Layout";
 import GetStart from "./components/GetStart/GetStart";
@@ -9,10 +9,9 @@ import Blog from "./components/Blog/Blog";
 import Pricing from "./components/Pricing/Pricing";
 import NotFound from "./components/NotFound/NotFound";
 import Footer from "./components/Footer/Footer";
-
+import Login from "./components/Login/Login";
+import Demo from "./components/Demo/Demo";
 function App() {
-
-
   // Routes
   const routes = createBrowserRouter([
     {
@@ -27,11 +26,12 @@ function App() {
         { path: "blog", element: <Blog /> },
         { path: "pricing", element: <Pricing /> },
         { path: "footer", element: <Footer /> },
+        { path: "login", element: <Login /> },
+        { path: "demo", element: <Demo /> },
         { path: "*", element: <NotFound /> },
       ],
     },
   ]);
-
   return (
     <div>
       <div >
@@ -40,5 +40,4 @@ function App() {
     </div>
   );
 }
-
 export default App;

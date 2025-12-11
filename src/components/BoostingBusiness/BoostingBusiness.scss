@@ -1,0 +1,468 @@
+@import '../Footer/Footer.module.scss';
+
+// Note: We're reusing variables if possible, but defining local ones for strict adherence to the new design
+$card-bg: #161616; // Very dark background from Figma/Image
+$card-border: #333333;
+$text-primary: #FFFFFF;
+$text-secondary: #828282;
+$accent-green: #33C6AB;
+$accent-blue: #003FDB;
+
+.boosting-business-section {
+    width: 1200px;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0;
+    box-sizing: border-box;
+
+    @media (max-width: 1240px) {
+        width: 95%;
+    }
+}
+
+.grid-container {
+    display: grid;
+    // Desktop: 3 columns (Narrow - Wide - Narrow)
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-areas:
+        "analytics boosting collab"
+        "finance finance optimise";
+    gap: 24px;
+    width: 100%;
+
+    @media (max-width: 1024px) {
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas:
+            "analytics collab"
+            "boosting boosting"
+            "finance finance"
+            "optimise optimise";
+        gap: 20px;
+    }
+
+    @media (max-width: 768px) {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "analytics"
+            "boosting"
+            "collab"
+            "finance"
+            "optimise";
+        gap: 16px;
+    }
+}
+
+// Common Card Styles
+.b-card {
+    background: $card-bg;
+    border: 1px solid $card-border;
+    border-radius: 24px;
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+
+    // Responsive Padding
+    @media (max-width: 1024px) {
+        padding: 24px;
+        border-radius: 20px;
+    }
+
+    @media (max-width: 480px) {
+        padding: 20px;
+        border-radius: 16px;
+    }
+
+    // Dark mode / Light mode support
+    :global([data-theme="light"]) & {
+        background: #FFFFFF;
+        border-color: #E5E5E5;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    }
+
+    h3 {
+        color: $text-primary;
+        font-size: 1.1rem;
+        font-weight: 600;
+        margin-bottom: 8px;
+        text-align: center;
+        align-self: center;
+        line-height: 1.3;
+
+        :global([data-theme="light"]) & {
+            color: #111;
+        }
+    }
+
+    p {
+        color: $text-secondary;
+        font-size: 0.85rem;
+        text-align: center;
+        line-height: 1.5;
+        max-width: 90%;
+        align-self: center;
+
+        @media (max-width: 480px) {
+            font-size: 0.8rem;
+        }
+    }
+}
+
+/* === Grid Assigned Areas === */
+
+// 1. Simple Analytics
+.card-analytics {
+    grid-area: analytics;
+    justify-content: space-between;
+    min-height: 250px; // Ensure consistency
+}
+
+// 2. Boosting Business Chart
+.card-boosting {
+    grid-area: boosting;
+    justify-content: flex-start;
+    padding-bottom: 0 !important; // Allow chart to stick to bottom
+
+    h3,
+    p {
+        z-index: 2;
+        position: relative;
+    }
+
+    // Ensure content stays above chart
+    &>div:not(.chart-wrapper-large) {
+        z-index: 2;
+    }
+
+    min-height: 300px;
+}
+
+// 3. Easy Collaboration
+.card-collab {
+    grid-area: collab;
+    justify-content: flex-start;
+    align-items: center;
+    min-height: 250px;
+}
+
+// 4. Real-time Accounting
+.card-accounting {
+    grid-area: finance;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 40px; // Larger padding for this wide card
+
+    @media (max-width: 1024px) {
+        padding: 30px;
+        flex-direction: row; // Keep row if possible on tablet
+    }
+
+    @media (max-width: 768px) {
+        flex-direction: column; // Stack on mobile
+        gap: 30px;
+        padding: 24px;
+        text-align: center;
+    }
+
+    .text-content {
+        flex: 1;
+        max-width: 45%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+
+        @media (max-width: 768px) {
+            max-width: 100%;
+            align-items: center;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            text-align: left;
+            margin: 0;
+
+            @media (max-width: 768px) {
+                text-align: center;
+                font-size: 1.25rem;
+            }
+        }
+
+        p {
+            text-align: left;
+            align-self: flex-start;
+            margin: 0;
+            max-width: 100%;
+
+            @media (max-width: 768px) {
+                text-align: center;
+                align-self: center;
+            }
+        }
+    }
+
+    .invoice-list {
+        flex: 1;
+        padding-left: 40px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+
+        @media (max-width: 768px) {
+            padding-left: 0;
+            width: 100%;
+            align-items: center;
+        }
+    }
+}
+
+// 5. Optimise Expense
+.card-optimise {
+    grid-area: optimise;
+    justify-content: space-between;
+    align-items: flex-start;
+    text-align: left;
+
+    // On Desktop, this is a tall vertical space, button at bottom.
+    // On Tablet (full width), it might look empty if too tall, but we want it to adapt.
+
+    @media (max-width: 1024px) {
+        // Tablet: It's a full width bar at bottom
+        flex-direction: row;
+        align-items: center;
+        text-align: left;
+        padding: 30px 40px;
+    }
+
+    @media (max-width: 768px) {
+        // Mobile: Stack again
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 24px;
+        gap: 24px;
+    }
+
+    h3 {
+        font-size: 1.5rem;
+        text-align: left;
+        align-self: flex-start;
+        margin-bottom: 16px;
+
+        @media (max-width: 1024px) {
+            margin-bottom: 8px;
+        }
+
+        @media (max-width: 768px) {
+            text-align: center;
+            align-self: center;
+            font-size: 1.25rem;
+        }
+    }
+
+    p {
+        text-align: left;
+        align-self: flex-start;
+        margin-bottom: 32px;
+
+        @media (max-width: 1024px) {
+            margin-bottom: 0;
+            max-width: 60%;
+        }
+
+        @media (max-width: 768px) {
+            text-align: center;
+            align-self: center;
+            max-width: 100%;
+            margin-bottom: 24px;
+        }
+    }
+
+    // Wrapper for text on tablet to keep it left
+    &>div:first-child {
+        @media (max-width: 1024px) {
+            flex: 1;
+        }
+
+        @media (max-width: 768px) {
+            flex: unset;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+    }
+}
+
+
+/* === Specific Component Styles === */
+.analytics-badge {
+    background: rgba(51, 198, 171, 0.1);
+    color: $accent-green;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    align-self: flex-start;
+    margin: 16px 0;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+
+    @media (max-width: 1024px) {
+        align-self: center;
+    }
+
+    @media (max-width: 768px) {
+        align-self: center;
+    }
+}
+
+.bg-analytics {
+    background: #1A1A1D;
+    border: 1px solid #2C2C30;
+    border-radius: 16px;
+    width: 100%;
+    max-width: 300px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.chart-wrapper-small {
+    width: 100%;
+    height: 100px;
+    margin-top: auto;
+}
+
+.chart-wrapper-large {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 55%;
+    width: 100%;
+    opacity: 0.9;
+    // Gradient mask to fade out bottom slightly if needed, but per design usually simple
+    mask-image: linear-gradient(to top, black 80%, transparent 100%);
+    pointer-events: none;
+}
+
+.avatar-group {
+    display: flex;
+    justify-content: center;
+    margin-top: auto;
+    padding-top: 20px;
+
+    .avatar {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        border: 2px solid $card-bg;
+        margin-left: -10px;
+        background-size: cover;
+        background-position: center;
+        background-color: #333;
+        flex-shrink: 0;
+
+        &:first-child {
+            margin-left: 0;
+        }
+    }
+}
+
+
+
+.invoice-card-mock {
+    background: #1A1A1D;
+    border: 1px solid #2C2C30;
+    border-radius: 16px;
+    padding: 16px;
+    width: 100%;
+    max-width: 300px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+
+    h4 {
+        margin: 0 0 12px 0;
+        font-size: 0.9rem;
+        color: #fff;
+    }
+
+    .invoice-item {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 12px;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+
+        .icon-circle {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            flex-shrink: 0;
+        }
+
+        .invoice-details {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+
+            span.name {
+                font-size: 0.8rem;
+                color: #fff;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+        }
+    }
+}
+
+.price-display {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #fff;
+    margin-top: 24px;
+
+    @media (max-width: 768px) {
+        font-size: 1.75rem;
+    }
+}
+
+.explore-btn {
+    background: #FFFFFF;
+    color: #000000;
+    border: none;
+    padding: 12px 28px;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    margin-top: auto;
+    align-self: flex-start; // Default left
+    transition: transform 0.2s, background-color 0.2s;
+
+    &:hover {
+        transform: translateY(-2px);
+        background-color: #f0f0f0;
+    }
+
+    @media (max-width: 1024px) {
+        align-self: center; // Center on tablet if it's a bar? Or keep right?
+        // Actually for the "bar" layout on tablet, right aligned is nice.
+        margin-top: 0;
+        margin-left: auto;
+    }
+
+    @media (max-width: 768px) {
+        margin: 0;
+        align-self: center; // Center on mobile
+    }
+}
