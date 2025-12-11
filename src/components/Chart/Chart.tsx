@@ -61,30 +61,39 @@ export default function ChartComponent() {
           intersect: false,
         },
         scales: {
-          x: {
-            grid: {
-              display: true,
-              color: "#2C2C30",
-              drawBorder: true,
-              lineWidth: 1,
-            },
-            ticks: { color: "#6B7280", font: { size: 11 } }
-          },
-          y: {
-            grid: {
-              display: true,         // إظهار خطوط Y
-              color: "#2C2C30",
-              drawBorder: true,
-              lineWidth: 1,
-            },
-            ticks: {
-              color: "#6B7280",
-              font: { size: 11 },
-              callback: (value) => `$${value}k`
-            },
-            beginAtZero: true
-          },
-        }
+  x: {
+    grid: {
+      display: true,
+      color: "#2C2C30",
+      lineWidth: 1,
+    },
+    border: {
+      display: true,
+      color: "#2C2C30",
+      width: 1,
+    },
+    ticks: { color: "#6B7280", font: { size: 11 } }
+  },
+  y: {
+    grid: {
+      display: true,
+      color: "#2C2C30",
+      lineWidth: 1,
+    },
+    border: {
+      display: true,
+      color: "#2C2C30",
+      width: 1,
+    },
+    ticks: {
+      color: "#6B7280",
+      font: { size: 11 },
+      callback: (value) => `$${value}k`
+    },
+    beginAtZero: true
+  },
+}
+
         ,
       },
     });
