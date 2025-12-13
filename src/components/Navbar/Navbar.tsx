@@ -11,16 +11,24 @@ export default function Navbar() {
     const { t, i18n } = useTranslation();
     const toggleMenu = () => setMenuOpen((s) => !s);
     const cycleTheme = () => setTheme(theme === "light" ? "dark" : "light");
+
+    // Persist Language & Direction
     useEffect(() => {
-        const savedLang = localStorage.getItem("appLang");
+        const savedLang = localStorage.getItem("language");
         if (savedLang && savedLang !== i18n.language) {
             i18n.changeLanguage(savedLang);
         }
-    }, []);
+    }, [i18n]);
+
+    useEffect(() => {
+        document.documentElement.dir = i18n.language === "ar" ? "rtl" : "ltr";
+        document.documentElement.lang = i18n.language;
+    }, [i18n.language]);
+
     const handleLangChange = () => {
         const newLang = i18n.language === "ar" ? "en" : "ar";
         i18n.changeLanguage(newLang);
-        localStorage.setItem("appLang", newLang);
+        localStorage.setItem("language", newLang);
     };
 
     return (

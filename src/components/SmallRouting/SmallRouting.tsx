@@ -10,7 +10,7 @@ export default function SmallRouting() {
                     <li className="nav-item">
                         
                         <NavLink to="/product" className={({ isActive }) => (isActive ? "active" : "")}>
-                            Product
+                                Product
                         </NavLink>
                     </li>
                     <li className="nav-item">

@@ -37,7 +37,7 @@
     display: flex;
     align-items: center;
     list-style: none;
-    gap: 2rem; // Spacing between text links
+    gap: 2rem; 
     padding: 0 1rem;
     margin: 0;
     background: transparent;
@@ -57,7 +57,6 @@
         font-weight: 600;
       }
     }
-
     .cta-button {
       background: #FFFFFF;
       color: #000 !important; // Black text

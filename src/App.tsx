@@ -11,8 +11,15 @@ import NotFound from "./components/NotFound/NotFound";
 import Footer from "./components/Footer/Footer";
 import Login from "./components/Login/Login";
 import Demo from "./components/Demo/Demo";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+
+
 function App() {
-  // Routes
+  let queryClient = new QueryClient(
+    {
+  defaultOptions: {},
+}
+  );
   const routes = createBrowserRouter([
     {
       path: "",
@@ -35,7 +42,10 @@ function App() {
   return (
     <div>
       <div >
+       <QueryClientProvider client={queryClient}>
         <RouterProvider router={routes} />
+         </QueryClientProvider>
+        
       </div>
     </div>
   );

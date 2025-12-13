@@ -12,7 +12,7 @@ $accent-blue: #003FDB;
     width: 80%;
     max-width: 100%;
     margin: 0 auto;
-    
+
     box-sizing: border-box;
 
     @media (max-width: 1240px) {
@@ -349,21 +349,22 @@ $accent-blue: #003FDB;
 
 .avatars {
     display: flex;
-    margin-top:5px ;
+    margin-top: 5px;
 
     img {
-      width: 50px;
-      height: 42px;
-      border-radius: 50%;
-      border: 2px solid #fff;
-      object-fit: cover;
-      margin-left: -10px;
-      box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+        width: 50px;
+        height: 42px;
+        border-radius: 50%;
+        border: 2px solid #fff;
+        object-fit: cover;
+        margin-left: -10px;
+        box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
     }
-      &:first-child {
+
+    &:first-child {
         margin-left: 0;
-      }
     }
+}
 
 
 
