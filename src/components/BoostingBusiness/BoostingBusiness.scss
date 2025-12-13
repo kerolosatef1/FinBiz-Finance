@@ -9,14 +9,14 @@ $accent-green: #33C6AB;
 $accent-blue: #003FDB;
 
 .boosting-business-section {
-    width: 1200px;
+    width: 80%;
     max-width: 100%;
     margin: 0 auto;
-    padding: 0;
+    
     box-sizing: border-box;
 
     @media (max-width: 1240px) {
-        width: 95%;
+        width: 80%;
     }
 }
 
@@ -352,7 +352,7 @@ $accent-blue: #003FDB;
     margin-top:5px ;
 
     img {
-      width: 42px;
+      width: 50px;
       height: 42px;
       border-radius: 50%;
       border: 2px solid #fff;

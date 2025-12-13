@@ -1,7 +1,7 @@
 
 import "./Vadio-demo.scss";
 import { useTranslation } from "react-i18next";
-
+import imageplan from "../../../public/erd.jpg" 
 export default function VadioDemo() {
     const { t } = useTranslation();
 
@@ -23,8 +23,7 @@ export default function VadioDemo() {
                 {/* Right Image/Video Placeholder */}
                 <div className="image-side">
                     <img
-                        src="https://images.unsplash.com/photo-1531403009284-440f080d1e12?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                        alt="FinBiz Dashboard Demo"
+                        src={imageplan}
                     />
                 </div>
             </div>

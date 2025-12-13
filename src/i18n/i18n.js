@@ -13,7 +13,7 @@ i18n
     load: "languageOnly", // prevents en-GB issue
 
     backend: {
-      loadPath: "../../public/Locales/{{lng}}/translation.json",
+      loadPath: "/Locales/{{lng}}/translation.json",
     },
   });
 
