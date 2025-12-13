@@ -2,10 +2,8 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
-
 import "./Comments.scss";
 import { useCommentsData } from "../../Data/Data";
-
 export default function Comments() {
   const { data: comments, isLoading, isError } = useCommentsData();
 
