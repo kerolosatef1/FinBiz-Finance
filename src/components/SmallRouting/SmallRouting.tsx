@@ -1,8 +1,7 @@
 
 import { NavLink } from "react-router-dom";
 import "./SmallRouting.scss";
-import { useTheme } from "../Themes/Themes";
-import { useCallback } from "react";
+
 
 export default function SmallRouting() {
     
