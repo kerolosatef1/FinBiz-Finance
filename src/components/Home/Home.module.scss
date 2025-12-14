@@ -6,17 +6,17 @@
   align-items: center;
 
   background: linear-gradient(to bottom,
-      #1D1C20 30%,
-      #0F0F0F 50%,
-      #1D1C20 25%
+      #1D1C20 15%,
+      #0F0F0F 45%,
+      #1D1C20 40%
     );
 
   :global([data-theme="light"]) & {
     background: linear-gradient(to bottom,
-        #F6F6F6 0px,
-        #F6F6F6 220px,
-        #FFFFFF 220px,
-        #FFFFFF 100%);
+        #f6f6f6 25%,
+        #F2F2F2 25%,
+        #f6f6f6 25%,
+        #F2F2F2 25%);
   }
 }
 

@@ -30,7 +30,9 @@ $color-chart: #3AA087;
 $logo-text: #FBFBFB;
 $side-padding-desktop: 3rem;
 $side-padding-mobile: 1.2rem;
-
+$get-start-bg-light: #F6F6F6;
+$get-start-bg-dark: #1F1F1F;
+$get-start-border:#3B3B3B;
 :root[data-theme="light"] {
     --navbar-bg: #{$logo-text};
     --navbar-text: #{$text-color-light};
@@ -38,6 +40,9 @@ $side-padding-mobile: 1.2rem;
     --btn-text: #{$btn-text-light};
     --btn-hover: #{$btn-hover-light};
     --logo-text:#{$secondary-color-light};
+    --get-start-bg:#{$get-start-bg-light};
+    --get-start-text-light:#{$backgound-navbar-dark};
+   
 }
 
 :root[data-theme="dark"] {
@@ -47,6 +52,8 @@ $side-padding-mobile: 1.2rem;
     --btn-text: #{$logo-text};
     --btn-hover: #{$btn-hover-dark};
     --logo-text:#{$logo-text};
+    --get-start-bg:#{$get-start-bg-dark};
+    --get-start-text-light:#{$logo-text};
 }
 
 
@@ -99,13 +106,10 @@ $side-padding-mobile: 1.2rem;
     font-size: 22px;
     font-weight: 700;
 }
-
-/* LINKS */
 .links {
     display: flex;
     gap: 32px;
     list-style: none;
-
     li a {
         text-decoration: none;
         color: var(--navbar-text);
@@ -117,8 +121,6 @@ $side-padding-mobile: 1.2rem;
         }
     }
 }
-
-/* RIGHT */
 .right {
     display: flex;
     align-items: center;
@@ -126,15 +128,22 @@ $side-padding-mobile: 1.2rem;
 }
 
 .getStart {
-    background: var(--navbar-bg);
-    color: var(--btn-text);
-    padding: 10px 20px;
-    text-decoration: none;
-    border-radius: 19px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100px;
+    padding: 10px 24px;
     font-weight: 600;
-    transition: background 0.3s;
+    font-size: 15px;
+    text-decoration: none;
+    border: 1px solid transparent;
+    background-color: var(--get-start-bg);
+    color: var(--get-start-text-light);
+    border-top: 2px solid #3B3B3B;
+    border-left: .5px solid #3B3B3B;
+    border-right: .5px solid #3B3B3B;
 
-
+    
 }
 
 .themeToggle {
@@ -144,13 +153,8 @@ $side-padding-mobile: 1.2rem;
     cursor: pointer;
     color: var(--navbar-text);
     transition: transform 0.3s;
-
-    &:hover {
-        transform: rotate(20deg);
-    }
+   
 }
-
-/* HAMBURGER */
 .hamburger {
     width: 30px;
     height: 20px;
@@ -158,7 +162,6 @@ $side-padding-mobile: 1.2rem;
     flex-direction: column;
     justify-content: space-between;
     cursor: pointer;
-
     span {
         background: var(--navbar-text);
         height: 3px;
@@ -167,7 +170,6 @@ $side-padding-mobile: 1.2rem;
         transition: all 0.3s;
     }
 }
-
 .langBtn {
     padding: 6px 12px;
     border: none;
@@ -178,29 +180,22 @@ $side-padding-mobile: 1.2rem;
     font-size: 14px;
     transition: 0.3s ease;
     text-transform: uppercase;
-
-    /* Light Mode */
     background-color: var(--badge-bg);
     color: var(--text-color);
-
     &:hover {
         background-color: var(--main-color);
         color: #fff;
     }
 }
 
-/* Dark Mode (لو انت مبدل theme بإضافة كلاس dark على body أو nav) */
 .navbar.dark .langBtn {
     background-color: #222;
     color: #fff;
-
     &:hover {
         background-color: var(--main-color);
         color: #000;
     }
 }
-
-
 
 
 @media (max-width: 900px) {
@@ -224,3 +219,51 @@ $side-padding-mobile: 1.2rem;
         display: none;
     }
 }
+
+
+
+@media (max-width: 480px) {
+  .navbar-container {
+    height: 64px;
+    padding: 0 1rem; // أصغر شوية
+  }
+
+  .logoText {
+    font-size: 18px; // تصغير خفيف
+  }
+
+  .logoWrapper {
+    width: 2.4rem;
+    height: 2.4rem;
+  }
+
+  .logoContainer--small {
+    transform: scale(0.65);
+  }
+
+  .right {
+    gap: 10px;
+  }
+
+  .themeToggle {
+    font-size: 18px;
+  }
+
+  .langBtn {
+    padding: 4px 8px;
+    font-size: 12px;
+  }
+  .links {
+    padding: 16px;
+    gap: 16px;
+
+    li a {
+      font-size: 16px;
+    }
+  }
+    .navbar {
+    overflow-x: hidden;
+  }
+
+}
+

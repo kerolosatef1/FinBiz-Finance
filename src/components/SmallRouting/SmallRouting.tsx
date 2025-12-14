@@ -1,10 +1,13 @@
 
 import { NavLink } from "react-router-dom";
 import "./SmallRouting.scss";
+import { useTheme } from "../Themes/Themes";
+import { useCallback } from "react";
 
 export default function SmallRouting() {
+    
     return (
-        <div className="SmallRouting">
+        <div className={`SmallRouting`}>
             <nav className="nav-container">
                 <ul className="nav-list">
                     <li className="nav-item">

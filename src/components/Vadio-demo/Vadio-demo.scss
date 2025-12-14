@@ -1,23 +1,64 @@
 // Variables
-$card-bg: #0F0F11; // Matches BoostingBusiness and Payment dark card
-$text-primary: #FFFFFF;
+ // Matches BoostingBusiness and Payment dark card$text-primary: #FFFFFF;
 $text-secondary: #9CA3AF;
 $accent-green: #A3DC2F; // The bright lime green
 $btn-white: #FFFFFF;
 
+
+
+
+
+
+
+
+$main-color: #A3DC2F;
+$secondary-color-light: #1D1C20;
+$secondary-color-dark: #9B9CA1;
+$red-color: #EE1F1F;
+$button-color-dark: #F2F2F2;
+$text-color-dark2: #F5F5F5;
+$text-color-dark1: #FFFFFF;
+$text-color-dark3: #9B9CA1;
+$text-link-dark: #FBFBFB;
+$button-background-dark: #242424;
+$back-ground-section2: #0F0F0F;
+$backgound-navbar-light: #F6F6F6;
+$color-chart: #3AA087;
+$border:#242424;
+
+:root {
+  --card-bg:#FFFFFF;
+  --border:#242424;
+  --text-color-bbb:#1D1C20;
+  --card-bgg:#0F0F11;
+  --card-btn:#1D1C20;
+  --text-card:#FFFF;
+
+
+}
+
+[data-theme="dark"] {
+  --card-bg:#0F0F11;
+  --border:#BDBDBD;
+--text-color-bbb:#FFFFFF;
+  --card-bgg:#FFFFFF;
+  --text-colour-button:#FFFF;
+  --card-btn:#FFFF;
+  --text-card:#1D1C20;
+}
 .vadio-demo-section {
   width: 1200px;
   max-width: 100%;
   margin: 0 auto;
   padding: 0; // The card itself has sizing
-
+  margin-bottom: 1.5rem;
   @media (max-width: 1240px) {
     width: 95%;
   }
 }
 
 .demo-card {
-  background: $card-bg;
+  background: var(--card-bg);
   border-radius: 32px;
   padding: 60px;
   display: grid;
@@ -52,7 +93,7 @@ $btn-white: #FFFFFF;
   h2 {
     font-size: 3.5rem;
     font-weight: 700;
-    color: $text-primary;
+    color: var(--text-color);
     line-height: 1.1;
     margin-bottom: 40px;
 
@@ -93,8 +134,8 @@ $btn-white: #FFFFFF;
       }
 
       &.btn-video {
-        background: $btn-white;
-        color: #000;
+        background: var(--card-btn);
+        color: var(--text-card);
       }
 
       @media (max-width: 480px) {

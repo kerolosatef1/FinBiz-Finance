@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { Link } from "react-router-dom";
 import Logo from "../Logo/Logo";
 import { useTheme } from "../Themes/Themes";
@@ -9,10 +9,17 @@ export default function Navbar() {
     const [menuOpen, setMenuOpen] = useState(false);
     const { theme, setTheme } = useTheme();
     const { t, i18n } = useTranslation();
-    const toggleMenu = () => setMenuOpen((s) => !s);
-    const cycleTheme = () => setTheme(theme === "light" ? "dark" : "light");
 
-    // Persist Language & Direction
+    const toggleMenu = useCallback(() => setMenuOpen((s) => !s), []);
+    const cycleTheme = useCallback(() => setTheme(theme === "light" ? "dark" : "light"), [theme, setTheme]);
+
+    const handleLangChange = useCallback(() => {
+        const newLang = i18n.language === "ar" ? "en" : "ar";
+        i18n.changeLanguage(newLang);
+        localStorage.setItem("language", newLang);
+    }, [i18n]);
+
+    // Persist Language
     useEffect(() => {
         const savedLang = localStorage.getItem("language");
         if (savedLang && savedLang !== i18n.language) {
@@ -20,16 +27,12 @@ export default function Navbar() {
         }
     }, [i18n]);
 
-    useEffect(() => {
-        document.documentElement.dir = i18n.language === "ar" ? "rtl" : "ltr";
-        document.documentElement.lang = i18n.language;
-    }, [i18n.language]);
 
-    const handleLangChange = () => {
-        const newLang = i18n.language === "ar" ? "en" : "ar";
-        i18n.changeLanguage(newLang);
-        localStorage.setItem("language", newLang);
-    };
+    useEffect(() => {
+        const html = document.documentElement;
+        html.dir = i18n.language === "ar" ? "rtl" : "ltr";
+        html.lang = i18n.language;
+    }, [i18n.language]);
 
     return (
         <nav className={`navbar ${theme}`}>

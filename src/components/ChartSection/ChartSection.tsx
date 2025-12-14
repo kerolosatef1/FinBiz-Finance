@@ -6,9 +6,9 @@ import { useTranslation } from "react-i18next";
 export default function ChartSection() {
   const { t } = useTranslation();
 
-  return (
-    <div className="chart-section">
-      {/* Top Stats Cards */}
+  return <>
+    <section className="chart-section">
+  
       <div className="stats-cards">
         <div className="card">
           <div className="card-header">
@@ -33,7 +33,6 @@ export default function ChartSection() {
           <div className="card-value">$200.000</div>
         </div>
       </div>
-
       <div className="dashboard-content">
         {/* Left Sidebar */}
         <div className="left-sidebar">
@@ -106,6 +105,6 @@ export default function ChartSection() {
         </div>
 
       </div>
-    </div>
-  );
+    </section>
+</>
 }

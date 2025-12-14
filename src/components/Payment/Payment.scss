@@ -10,6 +10,26 @@ $badge-green-text: #37D67A;
 $badge-popular-bg: rgba(51, 198, 171, 0.1); // Assuming similar or specific color
 $badge-popular-text: #37D67A;
 
+:root {
+  --body-bg: #F2F2F2;
+  --border-clolor:#E0E0E0;
+  --color-text:#1D1C20;
+  --color-text-secondary:#4F4F4F;
+  --bg-packedge:#1A1A1A;
+  --bg-button:#1D1C20;
+  --text-button:#F2F2F2;
+}
+
+[data-theme="dark"] {
+  --body-bg: #161616;
+  --border-clolor:#242424;
+  --color-text:#F5F5F5;
+  --color-text-secondary:#F5F5F5;
+  
+  --bg-button:#F2F2F2;
+  --text-button:#1D1C20;
+  --bg-packedge:#ffff;
+}
 .payment-section {
   width: 1200px;
   max-width: 100%;
@@ -87,7 +107,7 @@ $badge-popular-text: #37D67A;
 }
 
 .pricing-card {
-  background: $card-bg;
+  background: var(--body-bg);
   border: 1px solid $card-border;
   border-radius: 24px;
   padding: 40px;
@@ -119,7 +139,7 @@ $badge-popular-text: #37D67A;
   }
 
   .card-title {
-    color: $primary-text;
+    color: $main-color;
     font-size: 1.5rem;
     font-weight: 600;
     margin-bottom: 16px;
@@ -127,7 +147,7 @@ $badge-popular-text: #37D67A;
   }
 
   .card-desc {
-    color: $secondary-text;
+    color: var(--bg-packedge);
     font-size: 0.9rem;
     text-align: center;
     line-height: 1.5;
@@ -137,14 +157,14 @@ $badge-popular-text: #37D67A;
 
   .price {
     text-align: center;
-    color: $primary-text;
+    color: var(--bg-packedge);
     font-size: 2.5rem;
     font-weight: 700;
     margin-bottom: 40px;
 
     span {
       font-size: 1rem;
-      color: $secondary-text;
+      color: var(--bg-packedge);
       font-weight: 400;
     }
   }
@@ -160,12 +180,11 @@ $badge-popular-text: #37D67A;
       display: flex;
       align-items: center;
       gap: 12px;
-      color: $secondary-text; // Or white? Image shows fairly bright text, maybe off-white
-      color: #E0E0E0;
+      color:var(--bg-packedge);
       font-size: 0.95rem;
 
       svg {
-        color: $primary-text; // Checkmark color
+        color: var(--bg-packedge); // Checkmark color
         font-size: 1rem;
         flex-shrink: 0;
       }
@@ -186,7 +205,7 @@ $badge-popular-text: #37D67A;
     &.btn-outline {
       background: rgba(255, 255, 255, 0.05); // Very subtle fill or just border
       border-color: #333;
-      color: $primary-text;
+      color: var(--bg-packedge);
 
       &:hover {
         background: rgba(255, 255, 255, 0.1);

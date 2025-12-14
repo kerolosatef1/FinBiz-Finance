@@ -19,7 +19,7 @@ export default function ChartComponent() {
     chartInstance.current = new Chart(ctx, {
       type: "line",
       data: {
-        labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+        labels: ["12:00AM", "01:00AM", "02:00AM", "03:00AM", "04:00AM", "05:00AM", "06:00AM", "07:00AM", "08:00AM", "09:00AM", "10:00AM","11:00AM"],
         datasets: [
           {
             label: "Income",

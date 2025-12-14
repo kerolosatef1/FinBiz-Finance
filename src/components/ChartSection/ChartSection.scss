@@ -1,23 +1,51 @@
 @import '../Footer/Footer.module.scss';
 
-// 2. ChartSection Component (Card Style)
+
+
+$main-color: #A3DC2F;
+$secondary-color-light: #1D1C20;
+$secondary-color-dark: #9B9CA1;
+$red-color: #EE1F1F;
+$button-color-dark: #F2F2F2;
+$text-color-dark2: #F5F5F5;
+$text-color-dark1: #FFFFFF;
+$text-color-dark3: #9B9CA1;
+$text-link-dark: #FBFBFB;
+$button-background-dark: #242424;
+$back-ground-section2: #0F0F0F;
+$backgound-navbar-light: #F6F6F6;
+$color-chart: #3AA087;
+$border:#242424;
+
+:root {
+  --body-bg: #F2F2F2;
+  --border-clolor:#E0E0E0;
+  --color-text:#1D1C20
+  --color-text-secondary:#4F4F4F;
+  --bg-packedge:#FFFFFF;
+  --bg-button:#F2F2F2;
+  --text-button:#1D1C20;
+}
+
+[data-theme="dark"] {
+  --body-bg: #161616;
+  --border-clolor:#242424;
+  --color-text:F5F5F5;
+  --color-text-secondary:#F5F5F5;
+  --bg-backedge:#1A1A1A;
+  --bg-button:#1d1c20;
+  --text-button:#f2f2f2;
+}
 .chart-section {
   width: 1200px;
   max-width: 100%;
-  background: #1E1E22;
+  background: var(--body-bg);
   border-radius: 26px;
   border: 1px solid #242424;
   padding: 32px;
-  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.35);
   display: flex;
   flex-direction: column;
   gap: 32px;
-
-  :global([data-theme="light"]) & {
-    background: #FFF;
-    border-color: #E5E5E5;
-    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.08);
-  }
 
   @media (max-width: 1024px) {
     padding: 24px;
@@ -58,7 +86,6 @@
   padding: 16px;
   position: relative;
 
-  // Green bottom line
 
   .card-header {
     display: flex;
@@ -91,9 +118,6 @@
     }
   }
 }
-
-
-// Main Dashboard Grid
 .dashboard-content {
   display: grid;
   grid-template-columns: 260px 1fr 260px; // Left sidebar, Center, Right sidebar
@@ -104,7 +128,6 @@
   }
 }
 
-// 4. Sidebars
 .left-sidebar,
 .right-sidebar {
   display: flex;
@@ -117,14 +140,11 @@
   border: 1px solid #242424;
   border-radius: 10px;
 }
-
-// Box Styles
 .box {
   padding: 20px;
 
 
 
-  :global([data-theme="light"]) & {}
 }
 
 .balance-box {
@@ -164,9 +184,7 @@
     font-size: 1.4rem;
     color: #fff;
 
-    :global([data-theme="light"]) & {
-      color: #111;
-    }
+
   }
 
   p {
@@ -177,13 +195,10 @@
 
 // 3. Chart Layout (Center Block)
 .chart-container {
-  background: #141416; // Slightly darker/distinct for chart area?
-  // Or transparent if sitting on the main Card. Request said "ChartSection Component (card on top)".
-  // So this internal area might just be content.
-  // But "Rounded corners on the entire chart container".
+  background: var(--bg-backedge); 
   border-radius: 20px; // Inner radius
   padding: 24px;
-  border: 1px solid #2C2C30;
+  border: 1px solid var(--border-clolor);
   display: flex;
   flex-direction: column;
 
