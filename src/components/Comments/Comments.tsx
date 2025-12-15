@@ -26,10 +26,6 @@ export default function Comments() {
             nextEl: '.custom-next',
             prevEl: '.custom-prev',
           }}
-          // Configuration for "Peek" effect:
-          // 0px (Mobile): 2 slides per view = 1 Full + 2 Half peeks
-          // 768px (Tablet): 3 slides per view = 3 Full (Cleanest layout for this width)
-          // 1024px (Desktop): 4 slides per view = 3 Full + 2 Half peeks
           breakpoints={{
             0: { slidesPerView: 2 },
             768: { slidesPerView: 3 },

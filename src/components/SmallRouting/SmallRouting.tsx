@@ -1,11 +1,9 @@
-
 import { NavLink } from "react-router-dom";
 import "./SmallRouting.scss";
 
-
 export default function SmallRouting() {
     
-    return (
+    return <>
         <div className={`SmallRouting`}>
             <nav className="nav-container">
                 <ul className="nav-list">
@@ -30,5 +28,5 @@ export default function SmallRouting() {
                 </ul>
             </nav>
         </div>
-    );
+    </>
 }
