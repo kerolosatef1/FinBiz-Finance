@@ -12,9 +12,7 @@ $accent-blue: #003FDB;
     width: 80%;
     max-width: 100%;
     margin: 0 auto;
-
     box-sizing: border-box;
-
     @media (max-width: 1240px) {
         width: 80%;
     }
@@ -22,12 +20,11 @@ $accent-blue: #003FDB;
 
 .grid-container {
     display: grid;
-    // Desktop: 3 columns (Narrow - Wide - Narrow)
     grid-template-columns: 1fr 2fr 1fr;
     grid-template-areas:
         "analytics boosting collab"
-        "finance finance optimise";
-    gap: 24px;
+        "finance finance  optimise";
+    gap: 7px;
     width: 100%;
 
     @media (max-width: 1024px) {
@@ -37,7 +34,7 @@ $accent-blue: #003FDB;
             "boosting boosting"
             "finance finance"
             "optimise optimise";
-        gap: 20px;
+        gap: 7px;
     }
 
     @media (max-width: 768px) {
@@ -48,38 +45,31 @@ $accent-blue: #003FDB;
             "collab"
             "finance"
             "optimise";
-        gap: 16px;
+        gap: 7px;
     }
 }
 
-// Common Card Styles
+
 .b-card {
     background: $card-bg;
     border: 1px solid $card-border;
     border-radius: 24px;
-    padding: 32px;
+    padding: 15px;
     display: flex;
     flex-direction: column;
     position: relative;
     overflow: hidden;
 
-    // Responsive Padding
     @media (max-width: 1024px) {
-        padding: 24px;
+        padding: 15px;
         border-radius: 20px;
     }
-
     @media (max-width: 480px) {
-        padding: 20px;
+        padding: 15px;
         border-radius: 16px;
     }
 
-    // Dark mode / Light mode support
-    :global([data-theme="light"]) & {
-        background: #FFFFFF;
-        border-color: #E5E5E5;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-    }
+    
 
     h3 {
         color: $text-primary;
@@ -90,9 +80,7 @@ $accent-blue: #003FDB;
         align-self: center;
         line-height: 1.3;
 
-        :global([data-theme="light"]) & {
-            color: #111;
-        }
+        
     }
 
     p {
@@ -109,16 +97,13 @@ $accent-blue: #003FDB;
     }
 }
 
-/* === Grid Assigned Areas === */
-
-// 1. Simple Analytics
 .card-analytics {
     grid-area: analytics;
     justify-content: space-between;
     min-height: 250px; // Ensure consistency
 }
 
-// 2. Boosting Business Chart
+
 .card-boosting {
     grid-area: boosting;
     justify-content: flex-start;

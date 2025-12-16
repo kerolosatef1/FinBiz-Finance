@@ -19,12 +19,10 @@ ChartJS.register(
     Tooltip,
     Filler
 );
-
 import image1 from "/download (1).jpeg";
 import image2 from "/download.jpeg";
 import image3 from "/images (1).jpeg";
 import image4 from "/images.jpeg";
-
 export default function BoostingBusiness() {
     const { t } = useTranslation();
 
@@ -91,7 +89,7 @@ export default function BoostingBusiness() {
                     </div>
                 </div>
 
-                {/* 2. Boosting Business */}
+                
                 <div className="b-card card-boosting">
                     <h3>{t("Boosting Business. Today and Tomorrow.")}</h3>
                     <p>
