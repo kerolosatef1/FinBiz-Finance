@@ -30,6 +30,7 @@ $badge-popular-text: #37D67A;
   --text-button:#1D1C20;
   --bg-packedge:#ffff;
 }
+
 .payment-section {
   width: 1200px;
   max-width: 100%;
@@ -70,7 +71,7 @@ $badge-popular-text: #37D67A;
   h2 {
     font-size: 3.5rem;
     font-weight: 700;
-    color: $primary-text;
+    color: var(--color-text);
     margin-bottom: 20px;
     line-height: 1.1;
 
@@ -190,7 +191,6 @@ $badge-popular-text: #37D67A;
       }
     }
   }
-
   .action-btn {
     width: 100%;
     padding: 16px;
@@ -201,33 +201,24 @@ $badge-popular-text: #37D67A;
     transition: all 0.2s;
     text-align: center;
     border: 1px solid transparent;
-
     &.btn-outline {
       background: rgba(255, 255, 255, 0.05); // Very subtle fill or just border
       border-color: #333;
       color: var(--bg-packedge);
-
-      &:hover {
-        background: rgba(255, 255, 255, 0.1);
-      }
     }
 
     &.btn-white {
       background: $btn-white;
       color: #000;
 
-      &:hover {
-        background: #F0F0F0;
-      }
+     
     }
 
     &.btn-green {
       background: $main-color; // #A3DC2F
       color: #000;
 
-      &:hover {
-        background: lighten($main-color, 5%);
-      }
+     
     }
   }
 }
