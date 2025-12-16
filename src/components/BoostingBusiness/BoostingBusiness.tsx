@@ -20,10 +20,10 @@ ChartJS.register(
     Filler
 );
 
-import image1 from "../../../public/download (1).jpeg";
-import image2 from "../../../public/download.jpeg";
-import image3 from "../../../public/images (1).jpeg";
-import image4 from "../../../public/images.jpeg";
+import image1 from "/download (1).jpeg";
+import image2 from "/download.jpeg";
+import image3 from "/images (1).jpeg";
+import image4 from "/images.jpeg";
 
 export default function BoostingBusiness() {
     const { t } = useTranslation();
