@@ -1,6 +1,6 @@
 import "./Vadio-demo.scss";
 import { useTranslation } from "react-i18next";
-import imageplan from "../../../public/card-Br_c2caN (1).png" 
+import imageplan from "./card-Br_c2caN (1).png" 
 export default function VadioDemo() {
     const { t } = useTranslation();
 
