@@ -34,26 +34,26 @@ $get-start-bg-light: #F6F6F6;
 $get-start-bg-dark: #1F1F1F;
 $get-start-border:#3B3B3B;
 :root[data-theme="light"] {
-    --navbar-bg: #{$logo-text};
-    --navbar-text: #{$text-color-light};
-    --btn-bg: #{$btn-bg-light};
-    --btn-text: #{$btn-text-light};
-    --btn-hover: #{$btn-hover-light};
-    --logo-text:#{$secondary-color-light};
-    --get-start-bg:#{$get-start-bg-light};
-    --get-start-text-light:#{$backgound-navbar-dark};
+    --navbar-bg: #FBFBFB;
+    --navbar-text: #111;
+    --btn-bg: #A3DC2F;
+    --btn-text: #fff;
+    --btn-hover: darken($main-color, 10%);
+    --logo-text:#1D1C20;
+    --get-start-bg:#F6F6F6;
+    --get-start-text-light:#0F0F0F;
    
 }
 
 :root[data-theme="dark"] {
-    --navbar-bg: #{$backgound-navbar-dark};
-    --navbar-text: #{$text-color-dark};
-    --btn-bg: #{$btn-text-dark};
-    --btn-text: #{$logo-text};
-    --btn-hover: #{$btn-hover-dark};
-    --logo-text:#{$logo-text};
-    --get-start-bg:#{$get-start-bg-dark};
-    --get-start-text-light:#{$logo-text};
+    --navbar-bg: #0F0F0F;
+    --navbar-text: #F5F5F5;
+    --btn-bg: #1F1F1F;
+    --btn-text: #FBFBFB;
+    --btn-hover: #E0E0E0;
+    --logo-text:#FBFBFB;
+    --get-start-bg:#1F1F1F;
+    --get-start-text-light:#FBFBFB;
 }
 
 
