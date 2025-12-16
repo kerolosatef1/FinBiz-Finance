@@ -16,14 +16,16 @@
 }
 :root {
   --h4-color: #1D1C20;
- 
+  --chart-tick-color: #6b7280;
+  --chart-grid-color: #e5e7eb;
 }
 
 [data-theme="dark"] {
-  --h4-color: #FFFFFF;
-  
+  --h4-color: #ffffff;
+  --chart-tick-color: #ffffff;
+  --chart-grid-color: #333333;
 }
 
-h4{
+h4 {
   color: var(--h4-color);
 }

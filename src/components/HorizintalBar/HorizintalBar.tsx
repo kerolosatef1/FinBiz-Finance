@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import Chart from "chart.js/auto";
 import "./HorizintalBar.scss";
+
 interface Props {
   title: string;
   label1: string;
@@ -10,6 +11,10 @@ interface Props {
   color1: string;
   color2: string;
 }
+
+const getCssVar = (name: string) =>
+  getComputedStyle(document.documentElement).getPropertyValue(name).trim();
+
 export default function HorizontalBar({
   title,
   label1,
@@ -17,16 +22,26 @@ export default function HorizontalBar({
   data1,
   data2,
   color1,
-  color2
+  color2,
 }: Props) {
-  const ref = useRef<HTMLCanvasElement>(null);
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const chartRef = useRef<Chart | null>(null);
 
   useEffect(() => {
-    if (!ref.current) return;
-    const ctx = ref.current.getContext("2d");
+    if (!canvasRef.current) return;
+
+    const ctx = canvasRef.current.getContext("2d");
     if (!ctx) return;
 
-    const chart = new Chart(ctx, {
+    const tickColor = getCssVar("--chart-tick-color");
+    const gridColor = getCssVar("--chart-grid-color");
+
+    // Destroy old chart (important for theme change)
+    if (chartRef.current) {
+      chartRef.current.destroy();
+    }
+
+    chartRef.current = new Chart(ctx, {
       type: "bar",
       data: {
         labels: [label1, label2],
@@ -44,20 +59,36 @@ export default function HorizontalBar({
         indexAxis: "y",
         responsive: true,
         maintainAspectRatio: false,
-        plugins: { legend: { display: false } },
+        plugins: {
+          legend: { display: false },
+        },
         scales: {
-          x: { grid: { color: "#333" }, ticks: { color: "#999" } },
-          y: { ticks: { color: "#fff" } },
+          x: {
+            grid: {
+              color: gridColor,
+            },
+            ticks: {
+              color: tickColor,
+            },
+          },
+          y: {
+            ticks: {
+              color: tickColor,
+            },
+          },
         },
       },
     });
 
-    return () => chart.destroy();
-  }, []);
+    return () => {
+      chartRef.current?.destroy();
+    };
+  }, [label1, label2, data1, data2, color1, color2]);
+
   return (
     <div style={{ height: "80px", width: "100%" }}>
-      <h4 >{title}</h4>
-      <canvas ref={ref}></canvas>
+      <h4>{title}</h4>
+      <canvas ref={canvasRef} />
     </div>
   );
 }
