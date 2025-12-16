@@ -14,3 +14,16 @@
   $color-chart:#3AA087
 
 }
+:root {
+  --h4-color: #1D1C20;
+ 
+}
+
+[data-theme="dark"] {
+  --h4-color: #FFFFFF;
+  
+}
+
+h4{
+  color: var(--h4-color);
+}

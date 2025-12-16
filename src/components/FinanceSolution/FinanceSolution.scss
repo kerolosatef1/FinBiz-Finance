@@ -11,21 +11,18 @@ $button-background-dark: #242424;
 $back-ground-section2: #0F0F0F;
 $backgound-navbar-light: #F6F6F6;
 $color-chart: #3AA087;
-
 :root {
+
   --body-bg: $backgound-navbar-ligh;
   --text-color: #111;
   --main-color: #A3DC2F;
-
   --badge-bg: #f0f0f0;
   --badge-text: #111;
-
   --input-bg: #efefef;
   --background-button:#{$text-color-dark1};
   --button-demo:#1D1C20;
   --text-demo:#ffffff;
 }
-
 [data-theme="dark"] {
   --body-bg: #1d1c20;
   --text-color: #fff;

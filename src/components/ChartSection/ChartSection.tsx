@@ -2,10 +2,9 @@ import "./ChartSection.scss";
 import ChartComponent from "../Chart/Chart";
 import HorizontalBar from "../HorizintalBar/HorizintalBar";
 import { useTranslation } from "react-i18next";
-
 export default function ChartSection() {
   const { t } = useTranslation();
-
+  
   return <>
     <section className="chart-section">
   

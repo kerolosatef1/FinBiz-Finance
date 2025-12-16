@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react";
 import Chart from "chart.js/auto";
+import "./HorizintalBar.scss";
 interface Props {
   title: string;
   label1: string;
@@ -55,7 +56,7 @@ export default function HorizontalBar({
   }, []);
   return (
     <div style={{ height: "80px", width: "100%" }}>
-      <h4 style={{ marginBottom: "10px" }}>{title}</h4>
+      <h4 >{title}</h4>
       <canvas ref={ref}></canvas>
     </div>
   );

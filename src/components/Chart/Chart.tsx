@@ -11,7 +11,6 @@ export default function ChartComponent() {
     }
     const ctx = chartRef.current.getContext("2d");
     if (!ctx) return;
-
     const gradientIncome = ctx.createLinearGradient(0, 0, 0, 400);
     gradientIncome.addColorStop(0, "rgba(47, 194, 220, 0.1)");
     gradientIncome.addColorStop(1, "rgba(20, 227, 193, 0)");

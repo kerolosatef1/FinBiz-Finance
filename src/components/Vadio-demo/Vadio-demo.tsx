@@ -19,7 +19,7 @@ export default function VadioDemo() {
                 </div>
                 <div className="image-side">
                     <img
-                        src={imageplan}
+                        src={imageplan} alt="plan"
                     />
                 </div>
             </div>

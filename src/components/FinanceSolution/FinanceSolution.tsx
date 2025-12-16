@@ -28,10 +28,10 @@ export default function FinanceSolution() {
 
       <div className="reviews">
         <div className="avatars">
-          <img src={image1} alt="user" />
-          <img src={image2} alt="user" />
-          <img src={image3} alt="user" />
-          <img src={image4} alt="user" />
+          <img src={image1} alt="user1" />
+          <img src={image2} alt="user2" />
+          <img src={image3} alt="user3" />
+          <img src={image4} alt="user4" />
         </div>
         <span className="text">
           1200+ reviews <strong>(4.9 of 5)</strong>
